@@ -1,0 +1,9 @@
+<p>
+  payment works!
+</p>
+<div *ngFor="let seat of selectedVehicleDetails.seats">
+  {{seat.seatNo}}
+  <!-- <input type="text" [(ngModel)]="seat.userId"> -->
+</div>
+
+<button (click)="bookSeats()">Pay</button>

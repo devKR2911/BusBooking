@@ -1,0 +1,25 @@
+<p>
+  buslist works!
+</p>
+
+<p>Seat Amount: {{seatTotal}}</p>
+<p>GST Amount: {{seatTotal | gst: 500}}</p>
+<p>Total Amount: {{totalAmount}}</p>
+
+<div *ngFor="let bus of availableVehicles" class="bus-list">
+  <div (click)="selectBus(bus)">
+    <p>Bus Number {{bus.id}}</p>
+    <p>From {{bus.from}}</p>
+    <p>To {{bus.to}}</p>
+    <p>Date {{bus.date}}</p>
+  </div>
+  <div *ngIf="selectedBus.id == bus.id">
+    <p>Available Seats</p>
+    <button class="bus-seat" 
+    [disabled]="seat.isSelected == true && seat.userId"
+    [ngClass]="{'selected': seat.isSelected || seat.userId}"
+    *ngFor="let seat of bus.seats" 
+    (click)="selectSeat(seat, bus)">{{seat.seatNo}} -- {{seat.userId}} -- {{loggedInUserId}}</button>
+    <button (click)="bookSeat(bus)">Book</button>
+  </div>
+</div>

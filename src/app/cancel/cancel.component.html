@@ -1,0 +1,25 @@
+<p>
+  cancel works!
+</p>
+<div *ngFor="let bus of availableVehicles" class="bus-list">
+  <div (click)="selectBus(bus)">
+    <p>Bus Number {{bus.id}}</p>
+    <p>From {{bus.from}}</p>
+    <p>To {{bus.to}}</p>
+    <p>Date {{bus.date}}</p>
+  </div>
+  <div>
+    <p>Booked Seats</p>
+    <div *ngFor="let seat of bus.seats">
+    <button class="bus-seat"
+    [ngClass]="{'selected': seat.isCancellable}"
+    *ngIf="!(!seat.userId || seat.userId !== loggedInUserId)"
+    (click)="selectSeat(seat, bus)">
+      {{seat.seatNo}} -- {{seat.userId}} -- {{loggedInUserId}}
+      {{!seat.userId || seat.userId !== loggedInUserId}}
+    </button>
+  </div>
+    <button (click)="cancelSeat(bus)">Cancel</button>
+    
+  </div>
+</div>

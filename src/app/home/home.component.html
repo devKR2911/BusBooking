@@ -1,0 +1,24 @@
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+             [speed]="200" [showSpinner]="false" [direction]="'rightToLeftIncreased'"
+             [color]="'red'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'"
+></ng-progress>
+<div>
+  From 
+  <select [(ngModel)]="fromLocation">
+    <option *ngFor="let location of locationArray" [ngValue]="location">{{location.name}}</option>
+  </select>
+  To   
+  <select [(ngModel)]="toLocation">
+    <option *ngFor="let location of locationArray" [ngValue]="location">{{location.name}}</option>
+  </select>
+  Date 
+  <select [(ngModel)]="selectedDate">
+    <option *ngFor="let dates of dateArray" [ngValue]="dates">{{dates.value}}</option>
+  </select>
+</div>
+<button (click)="setData()">Select</button>
+
+{{fromLocation | json}} <br>
+{{toLocation | json}} <br>
+{{selectedDate | json}} <br>
+

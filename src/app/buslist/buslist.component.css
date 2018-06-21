@@ -1,0 +1,23 @@
+.bus-list {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.bus-seat {
+    display: inline-block;
+    width: 50px;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    background: tomato;
+    cursor: pointer;
+}
+
+.selected {
+    background: blue;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
